@@ -9,7 +9,7 @@ const Team = () => {
       qualifications: 'PT, CTTS, CIASTMT, CDNT, CAFPCT, OMT',
       bio: 'A dedicated physiotherapist with over a decade of experience in rehabilitation and manual therapy. Passionate about holistic health, she founded SCADE to bridge medical science and everyday technology. At 25, she brings fresh innovation to global health challenges.',
       quote: '“Reaching people through products that benefit their health.”',
-      highlight: true, // For visual emphasis on leader
+      highlight: true, 
     },
     {
       name: 'Deekshi P',
