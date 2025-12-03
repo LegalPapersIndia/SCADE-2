@@ -40,7 +40,7 @@ const App = () => {
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-        
+        <ProductChatbot />
         <Footer />
       </div>
     </Router>
