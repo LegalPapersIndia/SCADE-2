@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 
 // Import your page components
@@ -11,11 +11,26 @@ import Team from './pages/Teampage';
 import Contact from './pages/Contact';
 import Footer from './Components/Footer';
 
+// ScrollToTop Component
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 const App = () => {
   return (
     <Router>
       <div className="min-h-screen bg-white">
         <Navbar />
+        
+        {/* This ensures scroll to top on every route change */}
+        <ScrollToTop />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -24,6 +39,7 @@ const App = () => {
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        
         <Footer />
       </div>
     </Router>
