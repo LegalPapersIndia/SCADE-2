@@ -120,7 +120,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-10 pt-6 text-center text-sm opacity-80">
           <p>
-            © 2025 SCADE Store-Studio. All rights reserved. | Made with care in Mysore, India
+            © 2025 <a href="https://legalpapersindia.com/">LPI</a> All rights reserved. | Made with care in Mysore, India
           </p>
           <p className="mt-2">
             Reach out for product inquiries, collaborations, or dealership opportunities.
