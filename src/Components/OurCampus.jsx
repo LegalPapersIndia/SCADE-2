@@ -31,9 +31,6 @@ const OurCampus = () => {
               allowFullScreen
             ></iframe>
           </div>
-          <p className="text-center text-gray-600 mt-4 text-sm">
-            A beautiful aerial view of Mysore at sunrise — the cultural capital of Karnataka, where tradition meets tranquility.
-          </p>
         </div>
 
         {/* Address & Contact Details */}

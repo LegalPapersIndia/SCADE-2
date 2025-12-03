@@ -10,6 +10,7 @@ import Tavarum from './pages/TavarumPage';
 import Team from './pages/Teampage';
 import Contact from './pages/Contact';
 import Footer from './Components/Footer';
+import ProductChatbot from './Components/Chatbot';
 
 // ScrollToTop Component
 const ScrollToTop = () => {
