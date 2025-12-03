@@ -19,17 +19,20 @@ const OurCampus = () => {
         {/* Video Showcase */}
         <div className="mb-12">
           <h3 className="text-2xl font-bold text-[#0A8A67] text-center mb-6">
-            Discover Mysore — Our Home City
+            Discover Manufacturing campus
           </h3>
           <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl">
-            <iframe
+            <video
               className="w-full h-full min-h-96 lg:min-h-[500px]"
               src={campus}
-              title="Mysore (Mysuru) — Sunrise and Morning Aerial View in 4K"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                autoPlay
+                muted
+                loop
+                playsInline
+                disablePictureInPicture
+                controls={false}
               allowFullScreen
-            ></iframe>
+            ></video>
           </div>
         </div>
 

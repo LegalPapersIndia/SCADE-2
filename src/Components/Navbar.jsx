@@ -12,7 +12,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-                <img src={logo} alt="Scade Logo" className="h-10 w-auto" />
+                <img src={logo} alt="Scade Logo" className="h-15 w-auto" />
             </div>
 
             {/* Desktop Navigation */}
