@@ -17,6 +17,7 @@ const Team = () => {
       qualifications: 'Mechatronics Engineer',
       bio: 'Skilled in robotics, automation, 3D modeling, and Arduino programming. Leads the technical development of Magmist, ensuring efficiency, durability, and smart features for sustainable water solutions.',
       quote: '“Health makes humans live happily.”',
+      highlight: true
     },
     {
       name: 'Samartha V S',
@@ -24,19 +25,22 @@ const Team = () => {
       qualifications: 'Diploma in Fire & Safety, Aeronautical & Marine Engineering',
       bio: 'Brings engineering insight into compelling marketing strategies. Drives awareness of SCADE’s health-focused innovations through digital campaigns, demos, and community partnerships.',
       quote: '“Innovating safety and health for every home.”',
+      highlight: true
     },
     {
       name: 'Anuradha D R',
       role: 'Financial Management',
       bio: 'A nurturing figure with deep family values, she ensures financial prudence, ethical practices, and sustainable growth. Her maternal perspective emphasizes long-term community wellness.',
       quote: '“A mother always expects a healthy lifestyle.”',
+      highlight: true
     },
     {
       name: 'Savitha',
       role: 'Financial Management',
       bio: 'Dedicated supporter of innovation and clean water access. Manages budgeting and investments with a focus on scalability and ethical, eco-friendly growth.',
       quote: '“Water is a basic essential with multiple benefits.”',
-    },
+      highlight: true
+    },  
   ];
 
   return (
