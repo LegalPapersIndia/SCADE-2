@@ -71,18 +71,15 @@ const Team = () => {
   ];
 
   return (
-    <div 
-      className="min-h-screen bg-gradient-to-b from-blue-50/60 via-white to-cyan-50/40 overflow-hidden"
-      style={{ fontFamily: "'Manrope', sans-serif" }}
-    >
-
-      {/* Hero */}
-      <section className="py-24 lg:py-32 px-6 text-center">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50/60 via-white to-cyan-50/40 overflow-x-hidden">
+      
+      {/* Hero Section - Responsive */}
+      <section className="py-16 px-6 text-center sm:py-20 lg:py-32">
         <motion.h1 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-6xl lg:text-8xl font-bold text-cyan-800 mb-8 leading-tight"
+          className="text-4xl sm:text-6xl lg:text-8xl font-bold text-cyan-800 mb-6 leading-tight"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Meet Our Family
@@ -91,16 +88,15 @@ const Team = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-2xl lg:text-3xl text-cyan-700 font-light max-w-5xl mx-auto"
+          className="text-lg sm:text-2xl lg:text-3xl text-cyan-700 font-light max-w-4xl mx-auto px-4"
         >
           Doctors, engineers, dreamers — united from Mysore to bring pure hydration to every Indian home.
         </motion.p>
       </section>
 
-
-      {/* Team Grid */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+      {/* Team Grid - Fully Responsive */}
+      <section className="py-12 px-6 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
           {teamMembers.map((member, i) => {
             const Icon = member.icon;
             const isExpanded = expanded === i;
@@ -110,81 +106,84 @@ const Team = () => {
                 key={i}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
                 className="group"
               >
-                <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-cyan-100 overflow-hidden">
-                  {/* Circular Image */}
-                  <div className="relative p-10 pb-0">
-                    <div className="relative mx-auto w-72 h-72">
-                      <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${member.color} opacity-20 blur-2xl group-hover:opacity-30 transition`} />
-                      <div className="absolute inset-0 rounded-full ring-8 ring-cyan-200/50 group-hover:ring-cyan-400/70 transition-all" />
+                <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-cyan-100 overflow-hidden h-full flex flex-col">
+                  
+                  {/* Image Container - Responsive */}
+                  <div className="relative p-6 sm:p-8 lg:p-10 pb-0">
+                    <div className="relative mx-auto w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72">
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${member.color} opacity-20 blur-3xl group-hover:opacity-40 transition`} />
+                      <div className="absolute inset-0 rounded-full ring-4 sm:ring-8 ring-cyan-200/50 group-hover:ring-cyan-400/70 transition-all" />
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover rounded-full shadow-2xl border-8 border-white"
+                        className="w-full h-full object-cover rounded-full shadow-2xl border-4 sm:border-8 border-white"
                       />
-                      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-600 to-blue-700 text-white p-5 rounded-full shadow-2xl">
-                        <Icon className="w-10 h-10" />
+                      <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-600 to-blue-700 text-white p-4 sm:p-5 rounded-full shadow-2xl">
+                        <Icon className="w-8 h-8 sm:w-10 sm:h-10" />
                       </div>
                     </div>
                   </div>
 
                   {/* Card Content */}
-                  <div className="pt-16 pb-10 px-8 text-center">
-                    <h3 
-                      className="text-3xl lg:text-4xl font-bold text-cyan-800 mb-2"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    >
-                      {member.name}
-                    </h3>
-                    <p className="text-xl font-semibold text-cyan-600 mb-3">
-                      {member.role}
-                    </p>
-                    {member.qualifications && (
-                      <p className="text-sm text-cyan-700 italic mb-6 opacity-90">
-                        {member.qualifications}
+                  <div className="pt-12 sm:pt-16 pb-8 px-6 sm:px-8 text-center flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-cyan-800 mb-2 leading-tight">
+                        {member.name}
+                      </h3>
+                      <p className="text-lg sm:text-xl font-semibold text-cyan-600 mb-2">
+                        {member.role}
                       </p>
-                    )}
+                      {member.qualifications && (
+                        <p className="text-xs sm:text-sm text-cyan-700 italic mb-4 opacity-90 px-2">
+                          {member.qualifications}
+                        </p>
+                      )}
 
-                    {/* Quote */}
-                    <div className="my-8 p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl border border-cyan-200">
-                      <Quote className="w-10 h-10 text-cyan-600 mx-auto mb-4 opacity-70" />
-                      <p className="text-lg font-medium text-cyan-800 italic leading-relaxed">
-                        “{member.quote}”
-                      </p>
+                      {/* Quote */}
+                      <div className="my-6 p-5 sm:p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl border border-cyan-200">
+                        <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-600 mx-auto mb-3 opacity-70" />
+                        <p className="text-sm sm:text-base lg:text-lg font-medium text-cyan-800 italic leading-relaxed">
+                          “{member.quote}”
+                        </p>
+                      </div>
+
+                      {/* Know More Button */}
+                      <button
+                        onClick={() => setExpanded(isExpanded ? null : i)}
+                        className="inline-flex items-center gap-2 mx-auto mt-4 text-cyan-700 font-bold hover:text-cyan-900 transition text-sm sm:text-base touch-manipulation"
+                      >
+                        {isExpanded ? "Show Less" : "Know More About Journey"}
+                        {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                      </button>
                     </div>
 
-                    {/* Know More Toggle */}
-                    <button
-                      onClick={() => setExpanded(isExpanded ? null : i)}
-                      className="inline-flex items-center gap-3 mx-auto mt-4 text-cyan-700 font-bold hover:text-cyan-900 transition"
-                    >
-                      {isExpanded ? "Show Less" : "Know More About Journey"}
-                      {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                    </button>
-
-                    {/* Expanded Full Details */}
+                    {/* Expanded Content */}
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.5 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="mt-8 pt-8 border-t border-cyan-100 space-y-6 text-left text-gray-700">
+                          <div className="mt-6 pt-6 border-t border-cyan-100 space-y-5 text-left text-gray-700 text-sm sm:text-base">
+                            {member.background && (
+                              <div>
+                                <h4 className="font-bold text-cyan-800 mb-1 text-sm sm:text-base">Background</h4>
+                                <p className="leading-relaxed">{member.background}</p>
+                              </div>
+                            )}
                             <div>
-                              <h4 className="font-bold text-cyan-800 mb-2">Background</h4>
-                              <p className="leading-relaxed">{member.background}</p>
-                            </div>
-                            <div>
-                              <h4 className="font-bold text-cyan-800 mb-2">Key Contributions</h4>
+                              <h4 className="font-bold text-cyan-800 mb-1 text-sm sm:text-base">Key Contributions</h4>
                               <p className="leading-relaxed">{member.contributions}</p>
                             </div>
                             <div>
-                              <h4 className="font-bold text-cyan-800 mb-2">About</h4>
+                              <h4 className="font-bold text-cyan-800 mb-1 text-sm sm:text-base">About</h4>
                               <p className="leading-relaxed">{member.bio}</p>
                             </div>
                           </div>
@@ -193,10 +192,10 @@ const Team = () => {
                     </AnimatePresence>
 
                     {/* Footer Badge */}
-                    <div className="mt-10 pt-6 border-t border-cyan-100 flex items-center justify-center gap-3 text-cyan-700">
-                      <Heart className="w-5 h-5 text-cyan-600" />
-                      <span className="text-sm font-medium">SCADE Technologies • Mysore</span>
-                      <Heart className="w-5 h-5 text-cyan-600" />
+                    <div className="mt-8 pt-5 border-t border-cyan-100 flex items-center justify-center gap-2 text-cyan-700 text-xs sm:text-sm">
+                      <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
+                      <span className="font-medium">SCADE Technologies • Mysore</span>
+                      <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
                     </div>
                   </div>
                 </div>
@@ -206,29 +205,29 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Final CTA – Same as Magmist */}
-      <section className="py-32 px-6 bg-gradient-to-r from-cyan-700 via-blue-800 to-cyan-900 text-white">
+      {/* Final CTA - Responsive */}
+      <section className="py-20 sm:py-28 lg:py-32 px-6 bg-gradient-to-r from-cyan-700 via-blue-800 to-cyan-900 text-white">
         <motion.div className="max-w-5xl mx-auto text-center">
           <h2 
-            className="text-6xl lg:text-8xl font-bold mb-10 leading-tight"
+            className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-8 leading-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             We Are SCADE
           </h2>
-          <p className="text-2xl lg:text-3xl font-light opacity-95 mb-16 max-w-4xl mx-auto">
+          <p className="text-lg sm:text-2xl lg:text-3xl font-light opacity-95 mb-12 max-w-3xl mx-auto px-4">
             A family united by science, values, and the dream of pure water for every home.
           </p>
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-16 py-8 rounded-full text-2xl font-bold shadow-2xl hover:shadow-amber-500/50 transition-all hover:scale-105"
+            className="inline-flex items-center gap-4 sm:gap-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-10 sm:px-16 py-6 sm:py-8 rounded-full text-lg sm:text-2xl font-bold shadow-2xl hover:shadow-amber-500/50 transition-all hover:scale-105 touch-manipulation"
           >
-            <HeartHandshake className="w-10 h-10" />
+            <HeartHandshake className="w-8 h-8 sm:w-10 sm:h-10" />
             Join Our Journey
-            <Sparkles className="w-10 h-10" />
+            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10" />
           </Link>
 
-          <p className="mt-16 text-xl opacity-90 italic">
+          <p className="mt-12 text-base sm:text-lg lg:text-xl opacity-90 italic">
             Proudly Made in <span className="font-bold text-cyan-300">Mysore, Karnataka</span> • With Love & Science
           </p>
         </motion.div>
