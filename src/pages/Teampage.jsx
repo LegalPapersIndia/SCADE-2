@@ -7,7 +7,8 @@ import {
 } from "lucide-react";
 
 const Team = () => {
-  const [expanded, setExpanded] = useState(null);
+  // Changed: now an array to allow multiple expanded cards
+  const [expanded, setExpanded] = useState([]);
 
   const teamMembers = [
     {
@@ -70,6 +71,15 @@ const Team = () => {
     }
   ];
 
+  // Toggle function for multiple expansions
+  const toggleExpanded = (index) => {
+    setExpanded(prev => 
+      prev.includes(index)
+        ? prev.filter(i => i !== index)  // remove if already expanded
+        : [...prev, index]              // add if not expanded
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/60 via-white to-cyan-50/40 overflow-x-hidden">
       
@@ -99,7 +109,7 @@ const Team = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
           {teamMembers.map((member, i) => {
             const Icon = member.icon;
-            const isExpanded = expanded === i;
+            const isExpanded = expanded.includes(i);   // Check if this index is in array
 
             return (
               <motion.div
@@ -153,7 +163,7 @@ const Team = () => {
 
                       {/* Know More Button */}
                       <button
-                        onClick={() => setExpanded(isExpanded ? null : i)}
+                        onClick={() => toggleExpanded(i)}
                         className="inline-flex items-center gap-2 mx-auto mt-4 text-cyan-700 font-bold hover:text-cyan-900 transition text-sm sm:text-base touch-manipulation"
                       >
                         {isExpanded ? "Show Less" : "Know More About Journey"}

@@ -74,7 +74,7 @@ const Footer = () => {
                 Explore
               </motion.h3>
               <div className="grid grid-cols-2 gap-3">
-                {['Home', 'Magmist', 'Tavarum', 'Team', 'About Us', 'Contact'].map((item, i) => (
+                {['Home', 'Magmist', 'Tavarum', 'Team', 'About', 'Contact'].map((item, i) => (
                   <motion.div
                     key={item}
                     initial={{ opacity: 0, y: 10 }}

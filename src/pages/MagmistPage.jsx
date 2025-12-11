@@ -22,6 +22,8 @@ import mm2 from '../Asset/mm2.jpg';
 import mm3 from '../Asset/mm3.jpg';
 import mm4 from '../Asset/mm4.jpg';
 
+import magmist from "../Asset/magnist.jpg"
+
 const whatsappNumber = "7411532800";
 const getWhatsAppLink = (model) => {
   const message = `Namaste SCADE Team!\n\nI'm very interested in *${model}*.\n\nPlease share:\n• Current pricing\n• Full specifications\n• Demo availability\n• Dealership options\n\nLooking forward to your reply!`;
@@ -68,8 +70,8 @@ const Magmist = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const classicImages = [m1, m2, m3, m4];
-  const eliteImages = [m5, m6, m7, m8];
+  const classicImages = [m1, m4 , m7 ,m4];
+  const eliteImages = [m5, m6, m2, m8];
   const proImages = [mm1, mm2, mm3, mm4];
 
   return (
@@ -312,29 +314,47 @@ const Magmist = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 px-6 bg-gradient-to-r from-cyan-700 via-blue-800 to-cyan-900 text-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-6xl lg:text-8xl font-bold mb-12 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Bring Pure Water Home
-          </h2>
-          <p className="text-2xl lg:text-3xl mb-16 opacity-95 font-light">
-            No plastic. No waiting. Just pure, healthy water — from air.
-          </p>
-          <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Namaste! Ready to bring Magmist home. Share full details & pricing.")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-16 py-8 rounded-full text-2xl font-bold shadow-2xl hover:shadow-amber-500/50 transition-all hover:scale-105"
-          >
-            <PhoneCall className="w-10 h-10" />
-            Chat on WhatsApp Now
-            <Sparkles className="w-10 h-10" />
-          </a>
-          <p className="mt-12 text-lg opacity-80 font-light">
-            *Output depends on humidity & temperature • Proudly Made in Mysore
-          </p>
-        </div>
-      </section>
+<section className="py-32 px-6 bg-gradient-to-r from-cyan-700 via-blue-800 to-cyan-900 text-white">
+  <div className="max-w-5xl mx-auto text-center">
+    
+    {/* Centered Logo - Fully Responsive */}
+    <div className="flex justify-center mb-12">
+      <img 
+        src={magmist} 
+        alt="Magmist Logo" 
+        className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto object-contain"
+      />
+    </div>
+
+    <h2 
+      className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-12 leading-tight" 
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      Bring Pure Water Home
+    </h2>
+
+    <p className="text-xl sm:text-2xl lg:text-3xl mb-16 opacity-95 font-light max-w-4xl mx-auto px-4">
+      No plastic. No waiting. Just pure, healthy water — from air.
+    </p>
+
+    <a
+      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        "Namaste! Ready to bring Magmist home. Share full details & pricing."
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-12 sm:px-16 py-7 sm:py-8 rounded-full text-xl sm:text-2xl font-bold shadow-2xl hover:shadow-amber-500/50 transition-all hover:scale-105 touch-manipulation"
+    >
+      <PhoneCall className="w-9 h-9 sm:w-10 sm:h-10" />
+      Chat on WhatsApp Now
+      <Sparkles className="w-9 h-9 sm:w-10 sm:h-10" />
+    </a>
+
+    <p className="mt-12 text-base sm:text-lg opacity-80 font-light">
+      *Output depends on humidity & temperature • Proudly Made in Mysore
+    </p>
+  </div>
+</section>
     </div>
   );
 };
